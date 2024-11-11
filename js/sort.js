@@ -1,6 +1,4 @@
-import { renderCards } from "./trainers.js";
-
-export function sortByName(data) {
+function sortByName(data) {
   return data.sort((a, b) => {
     const lastNameA = a["last name"].toLowerCase();
     const lastNameB = b["last name"].toLowerCase();
@@ -12,7 +10,7 @@ export function sortByName(data) {
   });
 }
 
-export function sortByExperience(data) {
+function sortByExperience(data) {
   return data.sort((a, b) => {
     const A = Number(a["experience"].split(" ")[0]);
     const B = Number(b["experience"].split(" ")[0]);
@@ -24,26 +22,15 @@ export function sortByExperience(data) {
   });
 }
 
-export function sort(data) {
+export function sort(data, sortBy) {
   const sortedData = [...data];
-  const sortingButtons = document.querySelectorAll(".sorting .sorting__btn");
+  
+  if (sortBy === "ЗА ПРІЗВИЩЕМ") {
+    return (sortByName(sortedData));
+  }
+  if (sortBy === "ЗА ДОСВІДОМ") {
+    return (sortByExperience(sortedData));
+  }
 
-  sortingButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      sortingButtons.forEach((btn) =>
-        btn.classList.remove("sorting__btn--active")
-      );
-
-      button.classList.add("sorting__btn--active");
-
-      if (button.innerText === "ЗА ПРІЗВИЩЕМ") {
-        return renderCards(sortByName(sortedData));
-      }
-      if (button.innerText === "ЗА ДОСВІДОМ") {
-        return renderCards(sortByExperience(sortedData));
-      }
-
-      return renderCards(data);
-    });
-  });
+  return data
 }

@@ -1,5 +1,4 @@
 import { getFilterCriteria, mapFormValues } from "./helpers.js";
-import { sortByExperience, sortByName } from "./sort.js";
 import { renderCards } from "./trainers.js";
 
 export function filterBySpecialization(data, specialization) {
@@ -30,7 +29,7 @@ export function filterByCategory(data, category) {
 
 export function filter(data) {
   const form = document.querySelector(".sidebar__filters");
-
+  
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -47,25 +46,11 @@ export function filter(data) {
         category === "all" ||
         trainer.category.toLowerCase() === mapFormValues(category).toLowerCase();
 
-      return specializationMatch && categoryMatch;
+      return (specializationMatch && categoryMatch);
     });
 
-    renderCards(filteredTrainers);
-
-    const sortingButtons = document.querySelectorAll(".sorting .sorting__btn");
-    sortingButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        sortingButtons.forEach((btn) => btn.classList.remove("sorting__btn--active"));
-        button.classList.add("sorting__btn--active");
-
-        if (button.innerText === "ЗА ПРІЗВИЩЕМ") {
-          filteredTrainers = sortByName(filteredTrainers);
-        } else if (button.innerText === "ЗА ДОСВІДОМ") {
-          filteredTrainers = sortByExperience(filteredTrainers);
-        }
-
-        renderCards(filteredTrainers);
-      });
-    });
+    return renderCards((filteredTrainers));
   });
 }
+
+   
