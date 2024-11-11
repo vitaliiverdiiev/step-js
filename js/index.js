@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sortingButtons = document.querySelectorAll(".sorting__btn");
   const filterButton = document.querySelector(".filters__submit");
   const form = document.querySelector(".sidebar__filters");
-  
+
   showHiddenElementsOnLoad();
   formPreventDefault(form);
   renderCards(DATA);

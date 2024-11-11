@@ -1,5 +1,5 @@
-import { resetCards } from './helpers.js';
-import { showModal } from './modal.js';
+import { resetCards } from "./helpers.js";
+import { showModal } from "./modal.js";
 
 export function createTrainerCard(trainer) {
   const template = document.getElementById("trainer-card");
@@ -10,9 +10,11 @@ export function createTrainerCard(trainer) {
     ".trainer__name"
   ).textContent = `${trainer["first name"]} ${trainer["last name"]}`;
 
-  trainerCard.querySelector(".trainer__show-more").addEventListener("click", () => {
-    showModal(trainer)
-  });
+  trainerCard
+    .querySelector(".trainer__show-more")
+    .addEventListener("click", () => {
+      showModal(trainer);
+    });
 
   return trainerCard;
 }
@@ -25,10 +27,8 @@ export function renderTrainerCard(trainer, place) {
 
 export function renderCards(data) {
   resetCards();
-  
+
   const trainersCards = document.getElementById("trainers-card");
-  
-  data.forEach(
-    (trainer) => renderTrainerCard(trainer, trainersCards)
-  );
+
+  data.forEach((trainer) => renderTrainerCard(trainer, trainersCards));
 }

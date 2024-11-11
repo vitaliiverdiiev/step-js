@@ -24,13 +24,13 @@ function sortByExperience(data) {
 
 export function sort(data, sortBy) {
   const sortedData = [...data];
-  
+
   if (sortBy === "ЗА ПРІЗВИЩЕМ") {
-    return (sortByName(sortedData));
+    return sortByName(sortedData);
   }
   if (sortBy === "ЗА ДОСВІДОМ") {
-    return (sortByExperience(sortedData));
+    return sortByExperience(sortedData);
   }
 
-  return data
+  return data;
 }

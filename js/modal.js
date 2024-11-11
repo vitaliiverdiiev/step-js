@@ -9,8 +9,10 @@ export function showModal(trainer) {
 
   modal.querySelector(".modal__name").textContent = trainer["first name"];
   modal.querySelector(".modal__img").src = trainer.photo;
-  modal.querySelector(".modal__point--category").textContent =
-    updateModalItem("Категорія", trainer.category);
+  modal.querySelector(".modal__point--category").textContent = updateModalItem(
+    "Категорія",
+    trainer.category
+  );
   modal.querySelector(".modal__point--experience").textContent =
     updateModalItem("Досвід", trainer.experience);
   modal.querySelector(".modal__point--specialization").textContent =
@@ -25,4 +27,3 @@ export function showModal(trainer) {
 
   modalContainer.appendChild(modal);
 }
-
