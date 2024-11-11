@@ -61,3 +61,11 @@ export const formPreventDefault = (form) => {
     e.preventDefault();
   });
 };
+
+export function sortingButtonSelectStyles(sortingButtons, currentButton) {
+  sortingButtons.forEach((btn) =>
+    btn.classList.remove("sorting__btn--active")
+  );
+
+  currentButton.classList.add("sorting__btn--active");
+}
