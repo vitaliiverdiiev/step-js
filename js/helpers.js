@@ -55,3 +55,9 @@ export function mapFormValues(input) {
       return 'БАСЕЙН'
   }
 }
+
+export const formPreventDefault = (form) => {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+  });
+};

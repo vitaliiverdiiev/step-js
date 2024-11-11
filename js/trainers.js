@@ -11,8 +11,6 @@ export function createTrainerCard(trainer) {
   ).textContent = `${trainer["first name"]} ${trainer["last name"]}`;
 
   trainerCard.querySelector(".trainer__show-more").addEventListener("click", () => {
-    console.log({trainer})
-
     showModal(trainer)
   });
 
